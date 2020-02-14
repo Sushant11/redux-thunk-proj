@@ -5,9 +5,10 @@ const { Text } = Typography;
 
 const JokeItem = props => {
   const { jokes, jokeLoading } = props;
+   console.log('jokes && jokes.flags :', jokes && jokes.error === false && jokes.flags.nsfw);
   return (
     <Spin spinning={jokeLoading}>
-      {jokes && jokes.error !== false ? (
+      {jokes && jokes.error === true ? (
         <div className="joke-message">
           {" "}
           <Text type="danger">Sorry.{jokes.message}!</Text>
@@ -22,7 +23,7 @@ const JokeItem = props => {
 
       <Descriptions className="attributes">
         {jokes && jokes.type && (
-          <Descriptions.Item label="Typr">
+          <Descriptions.Item label="Type">
             <Text code>{jokes.type}</Text>
           </Descriptions.Item>
         )}{" "}
@@ -31,30 +32,25 @@ const JokeItem = props => {
             <Text code>{jokes.category}</Text>
           </Descriptions.Item>
         )}{" "}
-        {jokes && jokes.contains && (
-          <Descriptions.Item label="Contains">
-            <Text code> {jokes.contains} </Text>
-          </Descriptions.Item>
-        )}{" "}
         {jokes && jokes.flags && (
           <Descriptions.Item label="Flags">
             {" "}
             <Checkbox.Group style={{ width: "100%" }} disabled>
               <Row>
                 <Col span={8}>
-                  <Checkbox value={jokes.nsfw}>Nsfw</Checkbox>
+                  <Checkbox checked={jokes && jokes.error === false ? jokes.flags.nsfw : null}>Nsfw</Checkbox>
                 </Col>
                 <Col span={8}>
-                  <Checkbox value="political">Political</Checkbox>
+                  <Checkbox checked={jokes && jokes.error === false ? jokes.flags.political : null}>Political</Checkbox>
                 </Col>
                 <Col span={8}>
-                  <Checkbox value="religious">Religious</Checkbox>
+                  <Checkbox checked={jokes && jokes.error === false ? jokes.flags.religious : null}>Religious</Checkbox>
                 </Col>
                 <Col span={8}>
-                  <Checkbox value="sexist">Sexist</Checkbox>
+                  <Checkbox checked={jokes && jokes.error === false ? jokes.flags.sexist : null}>Sexist</Checkbox>
                 </Col>
                 <Col span={8}>
-                  <Checkbox value="racist">Racist</Checkbox>
+                  <Checkbox checked={jokes && jokes.error === false ? jokes.flags.racist : null}>Racist</Checkbox>
                 </Col>
               </Row>
             </Checkbox.Group>

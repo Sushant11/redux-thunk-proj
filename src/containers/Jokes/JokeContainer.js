@@ -9,12 +9,20 @@ import * as jokeAction from "../../actions/jokeAction";
 
 export class ListContainer extends Component {
   /**
+   * Fetch joke.
+   *
+   */
+  fetchJoke = () => {
+    this.props.actions.fetchJoke();
+  };
+  
+  /**
    * Fetch joke by formData.
    * @param {object} formData
    *
    */
-  fetchJoke = (formData) => {
-    this.props.actions.fetchJoke(formData);
+  fetchCustomJoke = (formData) => {
+    this.props.actions.fetchCustomJoke(formData);
   };
 
   /**
@@ -29,6 +37,7 @@ export class ListContainer extends Component {
     return (
       <Joke
         fetchJoke={this.fetchJoke}
+        fetchCustomJoke={this.fetchCustomJoke}
         cleanJoke={this.cleanJoke}
         {...this.props}
       />

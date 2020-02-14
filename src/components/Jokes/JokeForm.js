@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Form, Input, Button, Row, Col, Radio, Checkbox, Card } from "antd";
 
 const jokeForm = props => {
-  const { fetchJoke, jokeLoading } = props;
+  const { fetchJoke, jokeLoading, fetchCustomJoke } = props;
   const { getFieldDecorator, validateFields, resetFields } = props.form;
 
   const handleRandom = () => {
@@ -14,7 +14,7 @@ const jokeForm = props => {
     validateFields((err, values) => {
       if (!err) {
         console.log("values :", values);
-        fetchJoke(values, []);
+        fetchCustomJoke(values);
       }
     });
   };
@@ -88,7 +88,6 @@ const jokeForm = props => {
               <Form.Item>
                 <Button
                   type="primary"
-                  htmlType="submit"
                   className="form-button"
                   size="large"
                   icon="sync"

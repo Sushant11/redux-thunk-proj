@@ -13,9 +13,10 @@ export const fetchJoke = formData => {
   return dispatch => {
     dispatch(jokeFetchRequest());
     return fetch(
-      formData === undefined
-        ? `Any`
-        : `${formData.category}?blacklistFlags=${formData.flags}&type=${formData.type}&contains=${formData.contains}`
+      // formData === undefined
+      //   ? `Any`
+      //   : `${formData.category}?blacklistFlags=${formData.flags}&type=${formData.type}&contains=${formData.contains}`
+      'Any'
     )
       .then(response => {
         if (response.status === 200) {
@@ -27,3 +28,23 @@ export const fetchJoke = formData => {
       .catch(error => dispatch(jokeFetchRequestFailure(error.Error)));
   };
 };
+
+export const fetchCustomJoke = formData => {
+  console.log("formData :", formData);
+  return dispatch => {
+    dispatch(jokeFetchRequest());
+    return fetch(
+     `${formData.category}?blacklistFlags=${formData.flags}&type=${formData.type}&contains=${formData.contains}`
+    )
+      .then(response => {
+        if (response.status === 200) {
+          dispatch(jokeFetchRequestSuccess(response));
+        } else {
+          // TODO
+        }
+      })
+      .catch(error => dispatch(jokeFetchRequestFailure(error.Error)));
+  };
+};
+
+
