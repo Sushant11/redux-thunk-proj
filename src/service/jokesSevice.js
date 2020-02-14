@@ -9,7 +9,6 @@ import { fetch } from "../utility/apifile";
 export const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
 export const fetchJoke = formData => {
-  console.log("formData :", formData);
   return dispatch => {
     dispatch(jokeFetchRequest());
     return fetch(
@@ -30,7 +29,6 @@ export const fetchJoke = formData => {
 };
 
 export const fetchCustomJoke = formData => {
-  console.log("formData :", formData);
   return dispatch => {
     dispatch(jokeFetchRequest());
     return fetch(
