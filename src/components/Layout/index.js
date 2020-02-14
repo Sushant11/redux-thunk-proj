@@ -7,8 +7,8 @@ const { Content, Footer } = Layout;
 const AppLayout = props => {
   return (
     <Layout className="layout">
-      <Content style={{ padding: "0 50px", margin: "50px 20px" }}>
-        <div style={{ background: "#fff", padding: 50, minHeight: "90vh" }}>
+      <Content>
+        <div style={{ padding: 50}}>
           {props.children}
         </div>
       </Content>

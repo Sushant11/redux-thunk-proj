@@ -32,7 +32,7 @@ export const fetchCustomJoke = formData => {
   return dispatch => {
     dispatch(jokeFetchRequest());
     return fetch(
-     `${formData.category}?blacklistFlags=${formData.flags}&type=${formData.type}&contains=${formData.contains}`
+     `${formData.category ? formData.category : ''}${formData.flags ? `?blacklistFlags=${formData.flags}` : ''}${formData.type ? `?type=${formData.type}` : ''}${formData.contains ? `?contains=${formData.contains}` : ''}`
     )
       .then(response => {
         if (response.status === 200) {

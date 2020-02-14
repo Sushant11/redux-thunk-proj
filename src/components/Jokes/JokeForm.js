@@ -40,21 +40,20 @@ const jokeForm = props => {
           <Col xs={24} sm={24} md={24} lg={6} xl={6}>
             <Form.Item label="Category">
               {getFieldDecorator("category")(
-                <Radio.Group initialValue="misc" buttonStyle="solid">
-                  <Radio.Button value="Any">Any</Radio.Button>
-                  <Radio.Button value="Programming">Programming</Radio.Button>
-                  <Radio.Button value="Miscellaneous">
+                <Checkbox.Group buttonStyle="solid">
+                  <Checkbox value="Programming">Programming</Checkbox>
+                  <Checkbox value="Miscellaneous">
                     Miscellaneous
-                  </Radio.Button>
-                  <Radio.Button value="Dark">Dark</Radio.Button>
-                </Radio.Group>
+                  </Checkbox>
+                  <Checkbox value="Dark">Dark</Checkbox>
+                </Checkbox.Group>
               )}
             </Form.Item>
           </Col>{" "}
           <Col xs={24} sm={24} md={24} lg={6} xl={6}>
             <Form.Item label="Flags">
               {getFieldDecorator("flags")(
-                <Checkbox.Group style={{ width: "100%" }}>
+                <Checkbox.Group style={{ width: "100%" }} disabled>
                   <Row>
                     <Col span={8}>
                       <Checkbox value="nsfw">Nsfw</Checkbox>
