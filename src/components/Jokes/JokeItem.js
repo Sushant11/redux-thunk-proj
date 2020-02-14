@@ -26,7 +26,7 @@ const JokeItem = props => {
       </Card>
       )}
 
-      <Descriptions className="attributes">
+      <Descriptions className="attributes" column={2}>
         {jokes && jokes.type && (
           <Descriptions.Item label="Type">
             <Text code>{jokes.type}</Text>
@@ -37,7 +37,7 @@ const JokeItem = props => {
             <Text code>{jokes.category}</Text>
           </Descriptions.Item>
         )}{" "}
-        {jokes && jokes.flags && (
+        {/* {jokes && jokes.flags && (
           <Descriptions.Item label="Flags">
             {" "}
             <Checkbox.Group style={{ width: "100%" }} disabled>
@@ -94,7 +94,7 @@ const JokeItem = props => {
               </Row>
             </Checkbox.Group>
           </Descriptions.Item>
-        )}
+        )} */}
       </Descriptions>
     </Spin>
   );
