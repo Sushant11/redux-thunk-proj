@@ -1,5 +1,5 @@
 import React from "react";
-import { Spin, Descriptions, Typography, Checkbox, Row, Col, Skeleton } from "antd";
+import { Spin, Descriptions, Typography, Checkbox, Row, Col, Skeleton, Card } from "antd";
 
 const { Text } = Typography;
 
@@ -17,12 +17,13 @@ const JokeItem = props => {
           <Text type="danger">Sorry.{jokes.message}!</Text>
         </div>
       ) : (
+        <Card className="form-card">
         <Skeleton loading={jokeLoading} active> <div className="joke-show">
         {jokes && jokes.setup && <h2>{jokes.setup}</h2>}{" "}
         {jokes && jokes.delivery && <h3>- {jokes.delivery}</h3>}{" "}
         {jokes && jokes.joke && <h2>{jokes.joke}</h2>}
       </div></Skeleton>
-       
+      </Card>
       )}
 
       <Descriptions className="attributes">

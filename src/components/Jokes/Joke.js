@@ -19,10 +19,10 @@ const Joke = props => {
           <span>Laugh Out Loud</span>
         </Title>
         <Row gutter={16} className="lol-main">
-          <Col lg={{ span: 24 }} xl={{ span: 24 }} className="joke-item">
+          <Col xs={24} sm={24} md={24} lg={12} xl={12} className="joke-item">
             <JokeItem {...props} />
             </Col>
-            <Col lg={{ span: 24 }} xl={{ span: 24 }}>
+            <Col xs={24} sm={24} md={24} lg={12} xl={12}>
               <JokeForm {...props} />
             </Col>
         </Row>

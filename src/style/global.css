@@ -12,21 +12,21 @@ code {
     monospace;
 }
 
+.layout {
+  height: 100%;
+}
+
 .title,
 .title h1 {
   text-align: center;
   color: #40a9ff !important;
 }
 
-.layout {
-  height: 100%;
-}
 .title span {
-  /* border-left: 1px solid #40a9ff;
-  border-right: 1px solid #40a9ff; */
   padding: 5px;
   border-bottom: 1px solid #40a9ff;
 }
+
 .footer {
   position: fixed;
   left: 0;
@@ -42,20 +42,16 @@ code {
   text-align: center;
 }
 
-.joke-item {
-  margin-top: 2%;
-}
-
 .form-button {
   margin-top: 2.2em;
 }
 
 .attributes {
-  padding: 5rem;
+  padding: 2rem;
 }
 
 .joke-show {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
@@ -65,4 +61,12 @@ code {
 
 .joke-message{
   margin: 20px;
+}
+
+.ant-layout-content {
+  -ms-flex: auto;
+  flex: auto;
+  min-height: 0;
+  height: 100vh;
+  overflow-x: auto;
 }

@@ -27,7 +27,7 @@ const jokeForm = props => {
     <Card className="form-card">
       <Form className="joke-form" onSubmit={handleSubmit}>
         <Row gutter={16}>
-          <Col xs={24} sm={24} md={24} lg={6} xl={6}>
+          <Col xs={24} sm={24} md={12} lg={6} xl={6}>
             <Form.Item label="Joke Type">
               {getFieldDecorator("type")(
                 <Radio.Group initialValue="single" buttonStyle="solid">
@@ -37,7 +37,7 @@ const jokeForm = props => {
               )}
             </Form.Item>
           </Col>
-          <Col xs={24} sm={24} md={24} lg={6} xl={6}>
+          <Col xs={24} sm={24} md={12} lg={6} xl={6}>
             <Form.Item label="Category">
               {getFieldDecorator("category")(
                 <Checkbox.Group buttonStyle="solid">
@@ -83,13 +83,12 @@ const jokeForm = props => {
             </Form.Item>
           </Col>
           <Col className="gutter-row" span={24}>
-            <Col span={8}>
+            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
               {" "}
               <Form.Item>
                 <Button
                   type="primary"
                   className="form-button"
-                  size="large"
                   icon="sync"
                   loading={jokeLoading}
                   onClick={handleRandom}
@@ -98,14 +97,13 @@ const jokeForm = props => {
                 </Button>
               </Form.Item>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
               {" "}
               <Form.Item>
                 <Button
                   type="primary"
                   htmlType="submit"
                   className="form-button"
-                  size="large"
                   icon="search"
                 >
                   Search
@@ -113,13 +111,12 @@ const jokeForm = props => {
               </Form.Item>{" "}
             </Col>
 
-            <Col span={8}>
+            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
               {" "}
               <Form.Item>
                 <Button
                   type="primary"
                   className="form-button"
-                  size="large"
                   icon="reload"
                   onClick={handleReset}
                 >
