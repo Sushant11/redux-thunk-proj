@@ -27,9 +27,11 @@ const jokeForm = props => {
     <Card className="form-card">
       <Form className="joke-form" onSubmit={handleSubmit}>
         <Row gutter={16}>
-          <Col xs={24} sm={24} md={12} lg={6} xl={6}>
+          <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <Form.Item label="Joke Type">
-              {getFieldDecorator("type")(
+              {getFieldDecorator("type", {
+                rules: [{ required: true, message: 'Please select a type.' }],
+              })(
                 <Radio.Group initialValue="single" buttonStyle="solid">
                   <Radio.Button value="single">Single</Radio.Button>
                   <Radio.Button value="twopart">Two Part</Radio.Button>
@@ -37,20 +39,35 @@ const jokeForm = props => {
               )}
             </Form.Item>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={6} xl={6}>
+          <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <Form.Item label="Category">
-              {getFieldDecorator("category")(
-                <Checkbox.Group buttonStyle="solid">
-                  <Checkbox value="Programming">Programming</Checkbox>
-                  <Checkbox value="Miscellaneous">
-                    Miscellaneous
-                  </Checkbox>
-                  <Checkbox value="Dark">Dark</Checkbox>
+              {getFieldDecorator("category", {
+                rules: [{ required: true, message: 'Please select a category.' }],
+              })(
+                <Checkbox.Group style={{ width: "100%" }}>
+                  <Row>
+                    <Col span={24}>
+                      <Checkbox value="Programming">Programming</Checkbox>
+                    </Col>
+                    <Col span={24}>
+                      <Checkbox value="Miscellaneous">Miscellaneous</Checkbox>
+                    </Col>
+                    <Col span={24}>
+                      <Checkbox value="Dark">Dark</Checkbox>
+                    </Col>
+                  </Row>
                 </Checkbox.Group>
               )}
             </Form.Item>
           </Col>{" "}
-          <Col xs={24} sm={24} md={24} lg={6} xl={6}>
+          <Col xs={24} sm={24} md={24} lg={8} xl={8}>
+            <Form.Item label="Contains">
+              {getFieldDecorator("contains")(
+                <Input placeholder="Enter Text" />
+              )}
+            </Form.Item>
+          </Col>
+          <Col xs={24} sm={24} md={24} lg={24} xl={24}>
             <Form.Item label="Flags">
               {getFieldDecorator("flags")(
                 <Checkbox.Group style={{ width: "100%" }} disabled>
@@ -75,20 +92,12 @@ const jokeForm = props => {
               )}
             </Form.Item>
           </Col>{" "}
-          <Col xs={24} sm={24} md={24} lg={6} xl={6}>
-            <Form.Item label="Contains">
-              {getFieldDecorator("contains")(
-                <Input placeholder="Enter Text" />
-              )}
-            </Form.Item>
-          </Col>
           <Col className="gutter-row" span={24}>
             <Col xs={24} sm={24} md={8} lg={8} xl={8}>
               {" "}
               <Form.Item>
                 <Button
                   type="primary"
-                  className="form-button"
                   icon="sync"
                   loading={jokeLoading}
                   onClick={handleRandom}
@@ -103,7 +112,6 @@ const jokeForm = props => {
                 <Button
                   type="primary"
                   htmlType="submit"
-                  className="form-button"
                   icon="search"
                 >
                   Search
@@ -116,7 +124,6 @@ const jokeForm = props => {
               <Form.Item>
                 <Button
                   type="primary"
-                  className="form-button"
                   icon="reload"
                   onClick={handleReset}
                 >
