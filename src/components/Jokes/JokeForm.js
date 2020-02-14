@@ -6,14 +6,15 @@ const jokeForm = props => {
   const { fetchJoke, jokeLoading, fetchCustomJoke } = props;
   const { getFieldDecorator, validateFields, resetFields } = props.form;
 
-  const handleRandom = () => {
+  const handleRandom = e => {
+    e.preventDefault();
     fetchJoke();
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     validateFields((err, values) => {
       if (!err) {
-        console.log("values :", values);
         fetchCustomJoke(values);
       }
     });
