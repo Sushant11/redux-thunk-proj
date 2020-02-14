@@ -12,7 +12,7 @@ const AppLayout = props => {
           {props.children}
         </div>
       </Content>
-      <Footer className="footer">LOL ©2020 Created by Sushant Chitrakar</Footer>
+      <Footer className="footer">LOL ©2020 Created by Sushant Chitrakar </Footer>
     </Layout>
   );
 };

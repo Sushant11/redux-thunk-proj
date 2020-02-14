@@ -1,5 +1,5 @@
 import React from "react";
-import { Spin, Descriptions, Typography, Checkbox, Row, Col, Skeleton, Card } from "antd";
+import { Spin, Descriptions, Typography, Skeleton, Card } from "antd";
 
 const { Text } = Typography;
 
