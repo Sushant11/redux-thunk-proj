@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row, Col, Typography, Card } from "antd";
+import { Row, Col, Typography } from "antd";
 import lol from  '../../assets/lol.png'
 
 import JokeItem from "./JokeItem";

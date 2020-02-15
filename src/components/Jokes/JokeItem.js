@@ -137,7 +137,7 @@ const JokeItem = props => {
                 shape="round"
                 size="large"
                 className="btn-white"
-                loading={jokeLoading}
+                // loading={jokeLoading}
                 onClick={handleRandom}
               ></Button>{" "}
               <Button
@@ -147,6 +147,7 @@ const JokeItem = props => {
                 size="large"
                 className="btn-white"
                 onClick={showModal}
+                // loading={jokeLoading}
               >
                 More
               </Button>
