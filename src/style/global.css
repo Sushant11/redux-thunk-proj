@@ -2,7 +2,8 @@
 
 body {
   margin: 0;
-  font-family: 'Lobster Two', cursive;
+  font-family: monospace;
+  /* font-family: 'Lobster Two', cursive; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -52,14 +53,10 @@ code {
 
 .joke-show {
   width: 80%;
-  margin: auto;
+  margin: 10% 10% 5% 10%;
 }
 
-.form-card{
-  box-shadow: 0px 0px 7px #e2e2e2;
-}
-
-.joke-message{
+.joke-message {
   margin: 20px;
 }
 
@@ -69,4 +66,36 @@ code {
   min-height: 0;
   height: 100vh;
   overflow-x: auto;
+}
+
+.joke-item {
+  margin-bottom: 2%;
+}
+
+.btn-layout {
+  margin-top: 2%;
+}
+
+.ant-card-bordered {
+  border: 1px solid #e8e8e8;
+  border-radius: 15px;
+  box-shadow: 0px 0px 7px #e2e2e2;
+}
+
+.btn-white {
+  box-shadow: 0px 0px 7px #e2e2e2;
+}
+
+.btn-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .lol-main {
+    margin-top: 15%;
+    text-align: center;
+  }
+  .btn-layout {
+    margin-top: 5%;
+  }
 }

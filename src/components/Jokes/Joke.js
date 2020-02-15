@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Row, Col, Typography } from "antd";
 
-import JokeForm from "./JokeForm";
 import JokeItem from "./JokeItem";
 
 const { Title } = Typography;
@@ -12,19 +11,25 @@ const Joke = props => {
   useEffect(() => {
     fetchJoke();
   }, [fetchJoke]);
+
+  const responsiveGrid = {
+    xl: { span: 12, offset: 6 },
+    lg: { span: 20, offset: 2 },
+    md: { span: 24 },
+    sm: { span: 24 },
+    xs: { span: 24 }
+  };
+  
   return (
     <div>
       <div>
         <Title className="title" level={4}>
           <span>Laugh Out Loud</span>
         </Title>
-        <Row gutter={16} className="lol-main">
-          <Col xs={24} sm={24} md={24} lg={12} xl={12} className="joke-item">
-            <JokeItem {...props} />
-            </Col>
-            <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-              <JokeForm {...props} />
-            </Col>
+        <Row gutter={16} className="lol-main" span={12}>
+          <Col {...responsiveGrid} className="joke-item">
+            <JokeItem {...props} className="joke-item" />
+          </Col>
         </Row>
       </div>
     </div>

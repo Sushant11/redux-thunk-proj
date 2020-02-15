@@ -1,43 +1,75 @@
-import React from "react";
-import { Spin, Descriptions, Typography, Skeleton, Card } from "antd";
+import React, { Fragment, useState } from "react";
+import { withRouter } from "react-router-dom";
+import {
+  Form,
+  Spin,
+  Descriptions,
+  Typography,
+  Skeleton,
+  Card,
+  Button,
+  Icon,
+  Row,
+  Col,
+  Modal
+} from "antd";
+import JokeForm from "./JokeForm";
 
 const { Text } = Typography;
 
 const JokeItem = props => {
-  const { jokes, jokeLoading } = props;
-  console.log(
-    "jokes && jokes.flags :",
-    jokes && jokes.error === false && jokes.flags
-  );
+  const { jokes, jokeLoading, fetchJoke } = props;
+  const { resetFields } = props.form;
+
+  const [visible, setVisible] = useState(false);
+
+  const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+
+  const handleRandom = e => {
+    e.preventDefault();
+    fetchJoke();
+  };
+
+  const showModal = () => {
+    setVisible(true);
+  };
+
+  const handleCancel = e => {
+    console.log(e);
+    setVisible(false);
+    resetFields();
+  };
+
   return (
-    <Spin spinning={jokeLoading}>
+    <div>
       {jokes && jokes.error === true ? (
         <div className="joke-message">
           {" "}
           <Text type="danger">Sorry.{jokes.message}!</Text>
         </div>
       ) : (
-        <Card className="form-card">
-        <Skeleton loading={jokeLoading} active> <div className="joke-show">
-        {jokes && jokes.setup && <h2>{jokes.setup}</h2>}{" "}
-        {jokes && jokes.delivery && <h3>- {jokes.delivery}</h3>}{" "}
-        {jokes && jokes.joke && <h2>{jokes.joke}</h2>}
-      </div></Skeleton>
-      </Card>
-      )}
-
-      <Descriptions className="attributes" column={2}>
-        {jokes && jokes.type && (
-          <Descriptions.Item label="Type">
-            <Text code>{jokes.type}</Text>
-          </Descriptions.Item>
-        )}{" "}
-        {jokes && jokes.category && (
-          <Descriptions.Item label="Category">
-            <Text code>{jokes.category}</Text>
-          </Descriptions.Item>
-        )}{" "}
-        {/* {jokes && jokes.flags && (
+        <Fragment>
+          <Card className="form-card">
+            <Spin spinning={jokeLoading} indicator={antIcon}>
+              {/* <Skeleton loading={jokeLoading} rows={1} active> */}{" "}
+              <div className="joke-show">
+                {jokes && jokes.setup && <h2>{jokes.setup}</h2>}{" "}
+                {jokes && jokes.delivery && <h3>- {jokes.delivery}</h3>}{" "}
+                {jokes && jokes.joke && <h2>{jokes.joke}</h2>}
+              </div>
+              {/* </Skeleton> */}
+              <Descriptions className="attributes" column={2}>
+                {jokes && jokes.type && (
+                  <Descriptions.Item label="Type">
+                    <Text code>{jokes.type.toUpperCase()}</Text>
+                  </Descriptions.Item>
+                )}{" "}
+                {jokes && jokes.category && (
+                  <Descriptions.Item label="Category">
+                    <Text code>{jokes.category.toUpperCase()}</Text>
+                  </Descriptions.Item>
+                )}{" "}
+                {/* {jokes && jokes.flags && (
           <Descriptions.Item label="Flags">
             {" "}
             <Checkbox.Group style={{ width: "100%" }} disabled>
@@ -95,9 +127,44 @@ const JokeItem = props => {
             </Checkbox.Group>
           </Descriptions.Item>
         )} */}
-      </Descriptions>
-    </Spin>
+              </Descriptions>
+            </Spin>
+          </Card>
+          <Row>
+            <Col className="btn-layout">
+              <Button
+                type="primary"
+                icon="sync"
+                shape="round"
+                size="large"
+                className="btn-white"
+                loading={jokeLoading}
+                onClick={handleRandom}
+              ></Button>{" "}
+              <Button
+                type="primary"
+                shape="round"
+                icon="plus"
+                size="large"
+                className="btn-white"
+                onClick={showModal}
+              >
+                More
+              </Button>
+            </Col>
+          </Row>
+          <Modal
+            title="Search Jokes"
+            visible={visible}
+            onCancel={handleCancel}
+            footer={""}
+          >
+            <JokeForm {...props} visible={visible} setVisible={setVisible} />
+          </Modal>
+        </Fragment>
+      )}
+    </div>
   );
 };
 
-export default JokeItem;
+export default Form.create()(withRouter(JokeItem));
