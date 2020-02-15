@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: monospace, cursive;
+  font-family: monospace;
   /* font-family: 'Lobster Two', cursive; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
