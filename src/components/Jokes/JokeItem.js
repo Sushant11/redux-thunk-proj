@@ -5,7 +5,6 @@ import {
   Spin,
   Descriptions,
   Typography,
-  Skeleton,
   Card,
   Button,
   Icon,
