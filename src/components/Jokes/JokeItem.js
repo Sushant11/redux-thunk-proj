@@ -52,20 +52,20 @@ const JokeItem = props => {
             <Spin spinning={jokeLoading} indicator={antIcon}>
               {/* <Skeleton loading={jokeLoading} rows={1} active> */}{" "}
               <div className="joke-show">
-                {jokes && jokes.setup && <h3>{jokes.setup}</h3>}{" "}
-                {jokes && jokes.delivery && <h4>- {jokes.delivery}</h4>}{" "}
-                {jokes && jokes.joke && <h4>{jokes.joke}</h4>}
+                {jokes && jokes.setup && <h2>{jokes.setup}</h2>}{" "}
+                {jokes && jokes.delivery && <h3>- {jokes.delivery}</h3>}{" "}
+                {jokes && jokes.joke && <h2>{jokes.joke}</h2>}
               </div>
               {/* </Skeleton> */}
               <Descriptions className="attributes" column={2}>
                 {jokes && jokes.type && (
                   <Descriptions.Item label="Type">
-                    <Text code>{jokes.type.toUpperCase()}</Text>
+                    <Text strong>{jokes.type.toUpperCase()}</Text>
                   </Descriptions.Item>
                 )}{" "}
                 {jokes && jokes.category && (
                   <Descriptions.Item label="Category">
-                    <Text code>{jokes.category.toUpperCase()}</Text>
+                    <Text strong>{jokes.category.toUpperCase()}</Text>
                   </Descriptions.Item>
                 )}{" "}
                 {/* {jokes && jokes.flags && (
