@@ -17,7 +17,7 @@ code {
   height: 100%;
 }
 .component {
-  margin: 5%;
+  margin: 10% 5% 0 5% ;
 }
 
 .title,
@@ -46,7 +46,7 @@ code {
 }
 
 .lol-main {
-  margin-top: 4%;
+  margin-top: 2%;
   text-align: center;
 }
 
@@ -102,7 +102,7 @@ code {
     margin-top: 20%;
   }
   .lol-main {
-    margin-top: 15%;
+    margin-top: 5%;
     text-align: center;
   }
   .btn-layout {
