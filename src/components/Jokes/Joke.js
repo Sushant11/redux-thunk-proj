@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { Row, Col, Typography } from "antd";
+import { Row, Col, Typography, Card } from "antd";
+import lol from  '../../assets/lol.png'
 
 import JokeItem from "./JokeItem";
 
@@ -19,12 +20,12 @@ const Joke = props => {
     sm: { span: 24 },
     xs: { span: 24 }
   };
-  
+
   return (
     <div>
       <div>
         <Title className="title" level={4}>
-          <span>Laugh Out Loud</span>
+          <span><img src={lol} alt='LOL'/>Laugh Out Loud<img src={lol} alt='LOL'/></span>
         </Title>
         <Row gutter={16} className="lol-main" span={12}>
           <Col {...responsiveGrid} className="joke-item">

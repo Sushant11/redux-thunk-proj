@@ -15,13 +15,13 @@ export class ListContainer extends Component {
   fetchJoke = () => {
     this.props.actions.fetchJoke();
   };
-  
+
   /**
    * Fetch joke by formData.
    * @param {object} formData
    *
    */
-  fetchCustomJoke = (formData) => {
+  fetchCustomJoke = formData => {
     this.props.actions.fetchCustomJoke(formData);
   };
 

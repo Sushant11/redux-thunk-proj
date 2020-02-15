@@ -8,11 +8,11 @@ const AppLayout = props => {
   return (
     <Layout className="layout">
       <Content>
-        <div style={{ padding: 50}}>
-          {props.children}
-        </div>
+        <div className="component">{props.children}</div>
       </Content>
-      <Footer className="footer">LOL ©2020 Created by Sushant Chitrakar </Footer>
+      <Footer className="footer">
+        LOL ©2020 Created by Sushant Chitrakar{" "}
+      </Footer>
     </Layout>
   );
 };

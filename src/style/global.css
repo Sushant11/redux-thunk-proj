@@ -16,6 +16,9 @@ code {
 .layout {
   height: 100%;
 }
+.component {
+  margin: 5%;
+}
 
 .title,
 .title h1 {
@@ -23,9 +26,13 @@ code {
   color: #40a9ff !important;
 }
 
-.title span {
-  padding: 5px;
-  border-bottom: 1px solid #40a9ff;
+.title {
+  text-align: center;
+}
+
+.title img {
+  height: 15px;
+  margin: 10px;
 }
 
 .footer {
@@ -97,5 +104,8 @@ code {
   }
   .btn-layout {
     margin-top: 5%;
+  }
+  .layout content {
+    margin-top: 10%;
   }
 }

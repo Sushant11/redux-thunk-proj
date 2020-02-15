@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { Form, Input, Button, Row, Col, Radio, Checkbox } from "antd";
 
 const jokeForm = props => {
-  const { fetchCustomJoke ,setVisible } = props;
+  const { fetchCustomJoke, setVisible } = props;
   const { getFieldDecorator, validateFields, resetFields } = props.form;
 
   const handleSubmit = e => {
@@ -21,20 +21,20 @@ const jokeForm = props => {
   };
 
   const formLayout = {
-    xl: {span : 12},
-    lg: {span: 12},
-    md: {span: 12},
-    sm: {span: 12},
-    xs: {span: 24}
-  } 
-  
+    xl: { span: 12 },
+    lg: { span: 12 },
+    md: { span: 12 },
+    sm: { span: 12 },
+    xs: { span: 24 }
+  };
+
   const btnLayout = {
-    xl: {span : 12},
-    lg: {span: 12},
-    md: {span: 12},
-    sm: {span: 12},
-    xs: {span: 12}
-  }
+    xl: { span: 12 },
+    lg: { span: 12 },
+    md: { span: 12 },
+    sm: { span: 12 },
+    xs: { span: 12 }
+  };
   return (
     <Form className="joke-form" onSubmit={handleSubmit}>
       <Row gutter={16}>
@@ -50,7 +50,7 @@ const jokeForm = props => {
             )}
           </Form.Item>
         </Col>
-        <Col{...formLayout}>
+        <Col {...formLayout}>
           <Form.Item label="Category">
             {getFieldDecorator("category", {
               rules: [{ required: true, message: "Please select a category." }]
@@ -104,7 +104,7 @@ const jokeForm = props => {
         <Col className="gutter-row" span={24}>
           <Col {...btnLayout}>
             {" "}
-            <Form.Item className='btn-center'>
+            <Form.Item className="btn-center">
               <Button type="primary" htmlType="submit" icon="search">
                 Search
               </Button>
@@ -113,7 +113,7 @@ const jokeForm = props => {
 
           <Col {...btnLayout}>
             {" "}
-            <Form.Item className='btn-center'>
+            <Form.Item className="btn-center">
               <Button type="primary" icon="reload" onClick={handleReset}>
                 Reset
               </Button>
